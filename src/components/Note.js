@@ -14,7 +14,7 @@ class Note extends React.Component {
 	saveNote(e) {
 		if (e.key === "Enter") {
 			const note = e.target.value;
-			const time = this._reactInternalFiber._debugOwner.stateNode.state.currentTime;
+			const time = this.props.getTime();
 			const notes = this.state.notes;
 			notes.push({
 				'note': note,

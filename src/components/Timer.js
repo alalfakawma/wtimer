@@ -16,6 +16,7 @@ class Timer extends React.Component {
 		this.resetTimer = this.resetTimer.bind(this);
 		this.toggleNotes = this.toggleNotes.bind(this);
 		this.notes = React.createRef();
+		this.getTime = this.getTime.bind(this);
 	}
 
 	toggleRunning() {
@@ -73,6 +74,10 @@ class Timer extends React.Component {
 		});
 	}
 
+	getTime() {
+		return this.state.currentTime;
+	}
+
 	render() {
 		return (
 			<div className="timerAndNote">
@@ -98,7 +103,7 @@ class Timer extends React.Component {
 						</div>
 					</div>
 				</div>
-				<Note ref={ this.notes } className={`${!this.state.noteShow ? 'is-hidden' : ''}`}></Note>
+				<Note getTime={ this.getTime } ref={ this.notes } className={`${!this.state.noteShow ? 'is-hidden' : ''}`}></Note>
 			</div>
 		);
 	}
