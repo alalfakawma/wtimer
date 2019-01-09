@@ -15,18 +15,20 @@ class Note extends React.Component {
 	saveNote(e) {
 		if (e.key === "Enter") {
 			const note = e.target.value;
-			const time = this.props.getTime();
-			const notes = this.state.notes;
-			notes.unshift({
-				'note': note,
-				'time': time.format('HH:mm:ss')
-			});
-			this.setState({
-				notes: notes
-			}, () => {
-				this.saveToLocalStorage(this.state.notes);
-				this.noteInput.current.value = "";
-			});
+			if (note.length > 0) {
+				const time = this.props.getTime();
+				const notes = this.state.notes;
+				notes.unshift({
+					'note': note,
+					'time': time.format('HH:mm:ss')
+				});
+				this.setState({
+					notes: notes
+				}, () => {
+					this.saveToLocalStorage(this.state.notes);
+					this.noteInput.current.value = "";
+				});
+			} 
 		}
 	}
 
