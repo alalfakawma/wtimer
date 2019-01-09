@@ -9,7 +9,7 @@ I am thinking of adding these features in the future -
 - Google sign-in using Firebase (As everything is now stored in LocalStorage)
 - Projects
 - Pomodoro Timer
-- Mobile Version
+- ~~Mobile Version~~
 
 ### Developing
 
