@@ -1,7 +1,6 @@
 import React from 'react';
 import Note from './Note';
 import moment from 'moment';
-import Tooltip from 'rc-tooltip';
 
 class Timer extends React.Component {
 	constructor(props) {
