@@ -81,7 +81,7 @@ class Timer extends React.Component {
 	render() {
 		return (
 			<div className="timerAndNote">
-				<div className="box timer-holder animated bounceInDown has-text-centered m-b-0 m-r-30">
+				<div className={`box timer-holder animated bounceInDown has-text-centered m-b-0 ${(this.state.noteShow) ? 'm-r-30' : ''}`}>
 					<div className="time has-text-weight-bold">
 						{ this.state.currentTime.format('HH:mm:ss') }
 					</div>
