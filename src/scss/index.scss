@@ -1,5 +1,6 @@
 // Font
 @import url('https://fonts.googleapis.com/css?family=Barlow:400,600');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:600');
 
 // Variable
 $primary: #353b48;
@@ -32,6 +33,10 @@ body {
 	background: $bodybg;
 	height: 100vh;
 	overflow: hidden;
+}
+
+.time {
+	font-family: "Source Code Pro", "Inconsolata", monospace;
 }
 
 .timerAndNote {
