@@ -135,7 +135,28 @@ body {
 		align-items: center;
 		justify-content: center;
 
+		& .with-reset-question {
+			position: relative;
+		}
+
+		& .reset-question {
+			left: 120%;
+			border-radius: 25%;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			width: 0;
+			transition: width 0.3s ease-in;
+
+			&.show {
+				width: 150px;
+			}
+		}
+
 		& .button {
+			position: relative;
 			margin-bottom: 0;
 		}
 	}
@@ -171,9 +192,19 @@ p {
 @media only screen and (max-width: 420px) {
 	.box.note-holder {
 		font-size: 80%;
-
 		& .note-time {
 			text-align: left;
+		}
+	}
+
+	.box.timer-holder {
+		& .buttons {
+			& .reset-question {
+				left: 40%;
+				& .reset-question-text {
+					display: none;
+				}
+			}
 		}
 	}
 }

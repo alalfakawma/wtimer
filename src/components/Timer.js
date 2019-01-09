@@ -10,6 +10,7 @@ class Timer extends React.Component {
 			currentTime: moment().set({'hour': 0, 'minute': 0, 'second': 0}),
 			timer: null,
 			noteShow: false,
+			resetQuestion: false
 		};
 		this.toggleRunning = this.toggleRunning.bind(this);
 		this.getFromLocalStorage = this.getFromLocalStorage.bind(this);
@@ -17,6 +18,7 @@ class Timer extends React.Component {
 		this.toggleNotes = this.toggleNotes.bind(this);
 		this.notes = React.createRef();
 		this.getTime = this.getTime.bind(this);
+		this.runResetQuestion = this.runResetQuestion.bind(this);
 	}
 
 	toggleRunning() {
@@ -57,11 +59,24 @@ class Timer extends React.Component {
 		}
 	}
 
+	runResetQuestion() {
+		if (!this.state.resetQuestion) {
+			this.setState({
+				resetQuestion: true
+			});
+		} else {
+			this.setState({
+				resetQuestion: false
+			});
+		}
+	}
+
 	resetTimer() {
 		clearInterval(this.state.timer);
 		this.setState({
 			currentTime: moment().set({'hour': 0, 'minute': 0, 'second': 0}),
-			running: false
+			running: false,
+			resetQuestion: false
 		}, () => {
 			this.notes.current.reset();
 			this.saveToLocalStorage(this.state.currentTime);
@@ -96,10 +111,25 @@ class Timer extends React.Component {
 								<i className={`fa ${!this.state.running ? 'fa-play' : 'fa-pause'}`}></i>
 							</span>
 						</div>
-						<div className="button is-primary" onClick={ this.resetTimer }>
-							<span className="icon is-small">
-								<i className="fa fa-refresh"></i>
-							</span>
+						<div className="with-reset-question">
+							<div className={`reset-question ${this.state.resetQuestion ? 'show' : ''}`}>
+								<span className="m-r-5 reset-question-text">Reset?</span>
+								<div className="button is-primary has-background-grey" onClick={ this.resetTimer }>
+									<span className="icon is-small">
+										<i className="fa fa-check"></i>
+									</span>
+								</div>
+								<div className="button is-primary" onClick={ () => this.setState({ resetQuestion: false }) }>
+									<span className="icon is-small">
+										<i className="fa fa-close"></i>
+									</span>
+								</div>
+							</div>
+							<div className="button is-primary" onClick={ this.runResetQuestion }>
+								<span className="icon is-small">
+									<i className="fa fa-refresh"></i>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
