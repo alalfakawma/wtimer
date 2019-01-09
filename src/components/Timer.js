@@ -8,11 +8,13 @@ class Timer extends React.Component {
 		this.state = {
 			running: false,
 			currentTime: moment().set({'hour': 0, 'minute': 0, 'second': 0}),
-			timer: null
+			timer: null,
+			noteShow: false,
 		};
 		this.toggleRunning = this.toggleRunning.bind(this);
 		this.getFromLocalStorage = this.getFromLocalStorage.bind(this);
 		this.resetTimer = this.resetTimer.bind(this);
+		this.toggleNotes = this.toggleNotes.bind(this);
 	}
 
 	toggleRunning() {
@@ -63,6 +65,12 @@ class Timer extends React.Component {
 		});
 	}
 
+	toggleNotes() {
+		this.setState({
+			noteShow: !this.state.noteShow
+		});
+	}
+
 	render() {
 		return (
 			<div className="timerAndNote">
@@ -71,7 +79,7 @@ class Timer extends React.Component {
 						{ this.state.currentTime.format('HH:mm:ss') }
 					</div>
 					<div className="buttons m-t-10">
-						<div className="button is-primary">
+						<div className="button is-primary" onClick={ this.toggleNotes }>
 							<span className="icon is-small">
 								<i className="fa fa-sticky-note"></i>
 							</span>
@@ -88,7 +96,7 @@ class Timer extends React.Component {
 						</div>
 					</div>
 				</div>
-				<Note></Note>
+				<Note className={`${!this.state.noteShow ? 'is-hidden' : ''}`}></Note>
 			</div>
 		);
 	}
