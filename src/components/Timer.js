@@ -1,6 +1,7 @@
 import React from 'react';
 import Note from './Note';
 import moment from 'moment';
+import ReactTooltip from 'react-tooltip'
 
 class Timer extends React.Component {
 	constructor(props) {
@@ -81,22 +82,23 @@ class Timer extends React.Component {
 	render() {
 		return (
 			<div className="timerAndNote">
+				<ReactTooltip effect="solid" place="bottom" html/>
 				<div className={`box timer-holder p-b-30 animated fadeIn has-text-centered ${(this.state.noteShow) ? 'timerNormal' : ''}`}>
 					<div className="time animated fadeInDown has-text-weight-bold">
 						{ this.state.currentTime.format('HH:mm:ss') }
 					</div>
 					<div className="buttons animated fadeInUp m-t-10">
-						<div className="button is-primary" onClick={ this.toggleNotes }>
+						<div data-tip={`${!this.state.noteShow ? '<span class=\'has-text-weight-bold\'>Open Notes</span>' : '<span class=\'has-text-weight-bold\'>Close Notes</span>'}`} className="button is-primary" onClick={ this.toggleNotes }>
 							<span className="icon is-small">
 								<i className={`fa ${this.state.noteShow ? 'fa-close' : 'fa-sticky-note'}`}></i>
 							</span>
 						</div>
-						<div className="button is-primary" onClick={ this.toggleRunning }>
+						<div data-tip={`${this.state.running ? '<span class=\'has-text-weight-bold\'>Stop</span>' : '<span class=\'has-text-weight-bold\'>Start</span>'}`} className="button is-primary" onClick={ this.toggleRunning }>
 							<span className="icon is-small">
 								<i className={`fa ${!this.state.running ? 'fa-play' : 'fa-pause'}`}></i>
 							</span>
 						</div>
-						<div className="button is-primary" onClick={ this.resetTimer }>
+						<div data-tip="<span class='has-text-weight-bold'>Reset</span>" className="button is-primary" onClick={ this.resetTimer }>
 							<span className="icon is-small">
 								<i className="fa fa-refresh"></i>
 							</span>
