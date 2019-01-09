@@ -85,7 +85,7 @@ class Timer extends React.Component {
 					<div className="time animated fadeInDown has-text-weight-bold">
 						{ this.state.currentTime.format('HH:mm:ss') }
 					</div>
-					<div className="buttons animated fadeInUp m-t-10">
+					<div className="buttons animated fadeInUp m-t-10 m-b-5">
 						<div className="button is-primary" onClick={ this.toggleNotes }>
 							<span className="icon is-small">
 								<i className={`fa ${this.state.noteShow ? 'fa-close' : 'fa-sticky-note'}`}></i>
