@@ -16,7 +16,7 @@ class Note extends React.Component {
 			const note = e.target.value;
 			const time = this.props.getTime();
 			const notes = this.state.notes;
-			notes.push({
+			notes.unshift({
 				'note': note,
 				'time': time.format('HH:mm:ss')
 			});
@@ -56,16 +56,23 @@ class Note extends React.Component {
 	render() {
 		return (
 			<div className={`box note-holder animated bounceInRight ${this.props.className}`}>
-				<div className="title is-5 m-b-20">Notes -</div>
-					{ this.state.notes.map((note, i) => {
-						return (
-							<div className="columns" key={i}>
-								<div className="column is-three-quarters p-t-0 p-b-0">{note.note}</div>
-								<div className="column has-text-right p-t-0 p-b-0">{note.time}</div>
-							</div>
-						);
-					}) }
-				<input ref={ this.noteInput } type="text" placeholder="Enter note..." className="input is-small" onKeyPress={ this.saveNote }/>
+				<div className={`title is-5 ${this.state.notes.length ? 'm-b-20' : 'm-b-30'}`}>Notes -</div>
+					<div className={`notes-container ${!this.state.notes.length ? 'is-hidden' : ''}`}>
+						{ this.state.notes.map((note, i) => {
+							return (
+								<React.Fragment>
+									<div className="columns" key={i}>
+										<div className="column is-three-quarters p-t-0 p-b-0">
+											<p>{note.note}</p>
+										</div>
+										<div className="column has-text-right p-t-0 p-b-0">{note.time}</div>
+									</div>
+									<hr className="m-b-20 m-t-0"/>
+								</React.Fragment>
+							);
+						}) }
+					</div>
+				<input ref={ this.noteInput } type="text" placeholder="Enter note..." className="input is-small note-input" onKeyPress={ this.saveNote }/>
 			</div>
 		);
 	}
