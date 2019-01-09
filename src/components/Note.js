@@ -69,7 +69,7 @@ class Note extends React.Component {
 										<div className="column is-three-quarters p-t-0 p-b-0">
 											<p>{note.note}</p>
 										</div>
-										<div className="column note-time p-t-0 p-b-0">{note.time}</div>
+										<div className="column note-time has-text-weight-semibold p-t-0 p-b-0">{note.time}</div>
 									</div>
 									<hr className="m-b-20 m-t-0"/>
 								</React.Fragment>
