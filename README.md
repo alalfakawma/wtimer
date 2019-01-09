@@ -1,4 +1,4 @@
-## WTimer (Work Timer)
+## ⏱ WTimer (Work Timer)
 
 This is an app build with ReactJS for recording time when you are working, for eg. On a freelance project. I came up with this site as most of the sites are not up to my liking and I have pretty much created this to cater for my needs, but I will share it to the whole world as I love open source.
 
