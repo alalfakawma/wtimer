@@ -57,7 +57,8 @@ class Note extends React.Component {
 	render() {
 		return (
 			<div ref={ this.noteHolder } className={`box note-holder ${this.props.className}`}>
-				<div className={`title is-5 ${this.state.notes.length ? 'm-b-20' : 'm-b-30'}`}>Notes -</div>
+				<div className={`title is-5 has-text-centered ${this.state.notes.length ? 'm-b-20' : 'm-b-30'}`}>Notes</div>
+					<input ref={ this.noteInput } type="text" placeholder="Enter note..." className="input note-input" onKeyPress={ this.saveNote }/>
 					<div className={`notes-container ${!this.state.notes.length ? 'is-hidden' : ''}`}>
 						{ this.state.notes.map((note, i) => {
 							return (
@@ -73,7 +74,6 @@ class Note extends React.Component {
 							);
 						}) }
 					</div>
-				<input ref={ this.noteInput } type="text" placeholder="Enter note..." className="input is-small note-input" onKeyPress={ this.saveNote }/>
 			</div>
 		);
 	}

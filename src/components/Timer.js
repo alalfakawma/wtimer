@@ -103,7 +103,7 @@ class Timer extends React.Component {
 						</div>
 					</div>
 				</div>
-				<Note getTime={ this.getTime } ref={ this.notes } className={`${!this.state.noteShow ? 'is-hidden' : ''}`}></Note>
+				<Note getTime={ this.getTime } ref={ this.notes } className={`${this.state.noteShow ? 'show' : ''}`}></Note>
 			</div>
 		);
 	}

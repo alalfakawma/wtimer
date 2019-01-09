@@ -53,10 +53,15 @@ body {
 	width: 5px;
 }
 
+.box.note-holder.show {
+	top: 176px;
+}
+
 .box.note-holder {
+	transition: top 0.7s cubic-bezier(0.60, -0.50, 0.265, 1.55);
 	width: 60vw;
 	position: absolute;
-	top: 176px;
+	top: 1000px;
 	left: 50%;
 	transform: translateX(-50%);
 
@@ -66,18 +71,26 @@ body {
 
 	& .notes-container {
 		overflow-x: hidden;
-		overflow-y: scroll;
+		overflow-y: auto;
 		max-height: 50vh;
 		padding: 15px 25px;
 		margin-bottom: 20px;
 	}
 
-	& input.note-input {
-		width: 90%;
-		position: absolute;
-		bottom: 10px;
+	& input.input {
+		position: relative;
 		left: 50%;
 		transform: translateX(-50%);
+		width: 93%;
+		margin-bottom: 15px;
+		border: none;
+		box-shadow: none;
+		border-radius: 0;
+		border-bottom: 1px solid $bodybg;
+	}
+
+	& input::placeholder {
+		color: #000;
 	}
 
 	& hr:last-of-type {
