@@ -15,6 +15,7 @@ class Timer extends React.Component {
 		this.getFromLocalStorage = this.getFromLocalStorage.bind(this);
 		this.resetTimer = this.resetTimer.bind(this);
 		this.toggleNotes = this.toggleNotes.bind(this);
+		this.notes = React.createRef();
 	}
 
 	toggleRunning() {
@@ -61,6 +62,7 @@ class Timer extends React.Component {
 			currentTime: moment().set({'hour': 0, 'minute': 0, 'second': 0}),
 			running: false
 		}, () => {
+			this.notes.current.reset();
 			this.saveToLocalStorage(this.state.currentTime);
 		});
 	}
@@ -96,7 +98,7 @@ class Timer extends React.Component {
 						</div>
 					</div>
 				</div>
-				<Note className={`${!this.state.noteShow ? 'is-hidden' : ''}`}></Note>
+				<Note ref={ this.notes } className={`${!this.state.noteShow ? 'is-hidden' : ''}`}></Note>
 			</div>
 		);
 	}
