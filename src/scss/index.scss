@@ -135,6 +135,14 @@ body {
 	}
 }
 
+.note-close-button {
+	position: absolute;
+	bottom: -18px;
+	left: 50%;
+	border: none;
+	transform: translateX(-50%);
+}
+
 .button {
 	border-radius: 50%;
 }
