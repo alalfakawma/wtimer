@@ -60,8 +60,8 @@ class Note extends React.Component {
 					{ this.state.notes.map((note, i) => {
 						return (
 							<div className="columns" key={i}>
-								<div className="column p-t-0 p-b-0">{note.note}</div>
-								<div className="column p-t-0 p-b-0">{note.time}</div>
+								<div className="column is-three-quarters p-t-0 p-b-0">{note.note}</div>
+								<div className="column has-text-right p-t-0 p-b-0">{note.time}</div>
 							</div>
 						);
 					}) }
