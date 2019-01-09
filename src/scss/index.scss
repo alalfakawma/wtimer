@@ -38,7 +38,7 @@ body {
 }
 
 .footer-bottom {
-	position: absolute;
+	position: fixed;
 	bottom: 10px;
 	left: 50%;
 	transform: translateX(-50%);
@@ -83,6 +83,10 @@ body {
 		  background-color: $bodybg;
 		  outline: 1px solid #fff;
 		}
+	}
+
+	& .note-time {
+		text-align: right;
 	}
 
 	& input.input {
@@ -146,5 +150,15 @@ p {
 
 	.footer-bottom {
 		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.box.note-holder {
+		font-size: 80%;
+
+		& .note-time {
+			text-align: left;
+		}
 	}
 }
