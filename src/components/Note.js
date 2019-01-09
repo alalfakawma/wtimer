@@ -8,6 +8,7 @@ class Note extends React.Component {
 		};
 		this.saveNote = this.saveNote.bind(this);
 		this.noteInput = React.createRef();
+		this.noteHolder = React.createRef();
 		this.getFromLocalStorage = this.getFromLocalStorage.bind(this);
 	}
 
@@ -55,13 +56,13 @@ class Note extends React.Component {
 
 	render() {
 		return (
-			<div className={`box note-holder animated bounceInRight ${this.props.className}`}>
+			<div ref={ this.noteHolder } className={`box note-holder ${this.props.className}`}>
 				<div className={`title is-5 ${this.state.notes.length ? 'm-b-20' : 'm-b-30'}`}>Notes -</div>
 					<div className={`notes-container ${!this.state.notes.length ? 'is-hidden' : ''}`}>
 						{ this.state.notes.map((note, i) => {
 							return (
-								<React.Fragment>
-									<div className="columns" key={i}>
+								<React.Fragment key={i}>
+									<div className="columns">
 										<div className="column is-three-quarters p-t-0 p-b-0">
 											<p>{note.note}</p>
 										</div>

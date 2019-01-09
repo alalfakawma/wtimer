@@ -81,11 +81,11 @@ class Timer extends React.Component {
 	render() {
 		return (
 			<div className="timerAndNote">
-				<div className={`box timer-holder animated bounceInDown has-text-centered m-b-0 ${(this.state.noteShow) ? 'm-r-30' : ''}`}>
-					<div className="time has-text-weight-bold">
+				<div className={`box timer-holder p-b-30 animated fadeIn has-text-centered ${(this.state.noteShow) ? 'timerNormal' : ''}`}>
+					<div className="time animated fadeInDown has-text-weight-bold">
 						{ this.state.currentTime.format('HH:mm:ss') }
 					</div>
-					<div className="buttons m-t-10">
+					<div className="buttons animated fadeInUp m-t-10">
 						<div className="button is-primary" onClick={ this.toggleNotes }>
 							<span className="icon is-small">
 								<i className={`fa ${this.state.noteShow ? 'fa-close' : 'fa-sticky-note'}`}></i>
