@@ -88,7 +88,7 @@ class Timer extends React.Component {
 					<div className="buttons m-t-10">
 						<div className="button is-primary" onClick={ this.toggleNotes }>
 							<span className="icon is-small">
-								<i className="fa fa-sticky-note"></i>
+								<i className={`fa ${this.state.noteShow ? 'fa-close' : 'fa-sticky-note'}`}></i>
 							</span>
 						</div>
 						<div className="button is-primary" onClick={ this.toggleRunning }>
