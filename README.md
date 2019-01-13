@@ -6,9 +6,10 @@ This is an app build with ReactJS for recording time when you are working, for e
 
 I am thinking of adding these features in the future - 
 
-- Google sign-in using Firebase (As everything is now stored in LocalStorage)
+- Google sign-in using Firebase (As everything is now stored in LocalStorage - Not sure about this one!)
 - Projects
 - Pomodoro Timer
+- Todo List
 - ~~Mobile Version~~
 
 ### Developing
